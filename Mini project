@@ -1,0 +1,76 @@
+
+#include <stdio.h>
+
+void addPatient() {
+    char name[50];
+    int age;
+    char illness[100];
+
+    printf("Enter patient name: ");
+    scanf(" %[^\n]", name);
+    printf("Enter patient age: ");
+    scanf("%d", &age);
+    printf("Enter patient illness: ");
+    scanf(" %[^\n]", illness);
+
+    printf("\nPatient Details:\n");
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Illness: %s\n", illness);
+}
+
+void addDoctor() {
+    char name[50];
+    char specialty[50];
+
+    printf("Enter doctor name: ");
+    scanf(" %[^\n]", name);
+    printf("Enter doctor specialty: ");
+    scanf(" %[^\n]", specialty);
+
+    printf("\nDoctor Details:\n");
+    printf("Name: %s\n", name);
+    printf("Specialty: %s\n", specialty);
+}
+
+void bookAppointment() {
+    char patientName[50];
+    char doctorName[50];
+    char date[20];
+
+    printf("Enter patient name: ");
+    scanf(" %[^\n]", patientName);
+    printf("Enter doctor name: ");
+    scanf(" %[^\n]", doctorName);
+    printf("Enter appointment date (YYYY-MM-DD): ");
+    scanf(" %[^\n]", date);
+
+    printf("\nAppointment Details:\n");
+    printf("Patient: %s\n", patientName);
+    printf("Doctor: %s\n", doctorName);
+    printf("Date: %s\n", date);
+}
+
+int main() {
+    int choice;
+
+    do {
+        printf("\n--- Hospital Management System ---\n");
+        printf("1. Add Patient\n");
+        printf("2. Add Doctor\n");
+        printf("3. Book Appointment\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: addPatient(); break;
+            case 2: addDoctor(); break;
+            case 3: bookAppointment(); break;
+            case 4: printf("Exiting the system. Goodbye!\n"); break;
+            default: printf("Invalid choice! Please try again.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
